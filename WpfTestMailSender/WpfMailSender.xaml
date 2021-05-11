@@ -1,14 +1,164 @@
-﻿<Window x:Class="WpfTestMailSender.WpfMailSender"
+﻿<Window x:Class="WpfMailSender.WpfMailSender"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTestMailSender"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Mailer" Height="450" Width="800" Icon="Icons/Mail_64x.png">
     <Grid>
-        <Button x:Name="btnSendEmail" Content="Отправить email" HorizontalAlignment="Left" Margin="352,190,0,0" VerticalAlignment="Top" Width="100" Click="btnSendEmail_Click"/>
-        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="352,154,0,0" VerticalAlignment="Top" Width="100"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="281*"/>
+            <RowDefinition Height="39*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="File">
+                <MenuItem Header="Exit" Click="MenuItem_Click_1"/>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="About" Click="MenuItem_Click"/>
+            </MenuItem>
+        </Menu>
+        <TabControl Grid.Row="1" x:Name="tabControll1" TabStripPlacement="Right">
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <StackPanel.ToolTip>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Icons/groups.ico"  Width="50"/>
+                                <TextBlock Margin="3">Формирование группы рассылок</TextBlock>
+                            </StackPanel>
+                        </StackPanel.ToolTip>
+                        <Image Source="/Icons/groups.ico"  Width="20"/>
+                        <TextBlock Margin="3">Группы</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock>
+                        Email
+                    </TextBlock>
+                    <TextBox Grid.Row="1" Background="Gray" Grid.ColumnSpan="3">
+                        None
+                    </TextBox>
+                    <ListBox Grid.Row="2">
+                        <ListBoxItem>123</ListBoxItem>
+                        <ListBoxItem>123</ListBoxItem>
+                        <ListBoxItem>123</ListBoxItem>
+                    </ListBox>
+                </Grid>
+            </TabItem>
 
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <StackPanel.ToolTip>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Icons/Mail_64x.png"  Width="50"/>
+                                <TextBlock Margin="3">Формирование и отправка письма</TextBlock>
+                            </StackPanel>
+                        </StackPanel.ToolTip>
+                        <Image Source="/Icons/Mail_64x.png"  Width="20"/>
+                        <TextBlock Margin="3">Письмо</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Vertical" Grid.ColumnSpan="2">
+                        <Label Content="Название письма:" Width="auto"/>
+                        <TextBox Text="Название письма" x:Name="tbSubject" HorizontalAlignment ="Stretch"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Vertical" >
+                        <Label Content="From:" Width="auto"/>
+                        <TextBox Text="jiehuh87@yandex.ru" x:Name="tbFrom" HorizontalAlignment ="Stretch"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1"  Grid.Column="1" Orientation="Vertical" >
+                        <Label Content="To:" Width="auto"/>
+                        <TextBox Text="jiehuh87@yandex.ru" x:Name="tbTo" HorizontalAlignment ="Stretch"/>
+                    </StackPanel>
+                    <Label Grid.Row="2" Content="Содержимое письма:" Width="auto"/>
+                    <TextBox Grid.Row="3" Grid.ColumnSpan="2" Text="Содержимое письма" x:Name="tbBody" HorizontalAlignment ="Stretch"/>
+                    <Button Grid.Row="4" x:Name="btnSendEmail" Content="Отправить email" HorizontalAlignment="Stretch" Margin="50,0,50,0" VerticalAlignment="Bottom" Click="btnSendEmail_Click"/>
+                    <Button Grid.Row="4" Grid.Column="1" x:Name="btn" Content="Добавить в планировщик" HorizontalAlignment="Stretch" Margin="50,0,50,0" VerticalAlignment="Bottom" Click="btnSendEmail_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <StackPanel.ToolTip>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Icons/schedule.ico"  Width="50"/>
+                                <TextBlock Margin="3">Планировщик задач</TextBlock>
+                            </StackPanel>
+                        </StackPanel.ToolTip>
+                        <Image Source="/Icons/schedule.ico"  Width="20"/>
+                        <TextBlock Margin="3">Планировщик</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <StackPanel.ToolTip>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Icons/settings.ico"  Width="50"/>
+                                <TextBlock Margin="3">Настройки</TextBlock>
+                            </StackPanel>
+                        </StackPanel.ToolTip>
+                        <Image Source="/Icons/settings.ico"  Width="20"/>
+                        <TextBlock Margin="3">Настройки</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <StackPanel.ToolTip>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Icons/outbox1.png"  Width="50"/>
+                                <TextBlock Margin="3">Отчеты</TextBlock>
+                            </StackPanel>
+                        </StackPanel.ToolTip>
+                        <Image Source="/Icons/outbox1.png"  Width="20"/>
+                        <TextBlock Margin="3">Отчет</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <StackPanel.ToolTip>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Icons/stat.ico"  Width="50"/>
+                                <TextBlock Margin="3">Журнал</TextBlock>
+                            </StackPanel>
+                        </StackPanel.ToolTip>
+                        <Image Source="/Icons/stat.ico"  Width="20"/>
+                        <TextBlock Margin="3">Журнал</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+        </TabControl>
     </Grid>
+        
 </Window>
