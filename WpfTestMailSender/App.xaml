@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:WpfTestMailSender"
              StartupUri="WpfMailSender.xaml">
     <Application.Resources>
-         
+
     </Application.Resources>
 </Application>
