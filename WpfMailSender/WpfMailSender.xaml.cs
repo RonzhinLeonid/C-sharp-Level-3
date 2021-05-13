@@ -31,6 +31,19 @@ namespace WpfMailSender
 
         private void btnSendEmail_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(tbBody.Text))
+            {
+                MessageBox.Show("Письмо не заполнено.");
+                tbBody.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(tbTo.Text))
+            {
+                MessageBox.Show("Не указан получатель.");
+                tbTo.Focus();
+                return;
+            }
+
             var email = new EmailSendServiceClass("jiehuh87@gmail.com", fromPassword);
             email.FromWriter = tbFrom.Text;
             email.ToWriter = tbTo.Text;
