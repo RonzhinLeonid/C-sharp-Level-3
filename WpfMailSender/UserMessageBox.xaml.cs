@@ -10,19 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace C_sharp_Level_3
+namespace WpfMailSender
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class UserMessageBox : Window
     {
-        public MainWindow()
+        public UserMessageBox()
         {
             InitializeComponent();
+        }
+
+        private void btnOk_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
