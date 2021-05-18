@@ -129,6 +129,25 @@
                         <TextBlock Margin="3">Настройки</TextBlock>
                     </StackPanel>
                 </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2">
+                        <Label Content="Сервер:" Width="auto"/>
+                        <ComboBox  x:Name="cbServer" Width="150"/>
+                        <Label Content="Порт:" Width="auto"/>
+                        <TextBox  x:Name="tbPort" Width="50"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Vertical" >
+                        <Label Content="Логин:" />
+                        <ComboBox x:Name="cbSenderSelect" HorizontalAlignment ="Left" Width="200"/>
+                        <Label Content="To:" Width="auto"/>
+                        <PasswordBox x:Name="tbPassword" HorizontalAlignment ="Left" Width="200"/>
+                    </StackPanel>
+                </Grid>
             </TabItem>
             <TabItem>
                 <TabItem.Header>

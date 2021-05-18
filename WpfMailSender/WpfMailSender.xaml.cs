@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net;
 using System.Net.Mail;
+using WpfMailSender.Model;
 
 namespace WpfMailSender
 {
@@ -27,6 +28,14 @@ namespace WpfMailSender
         {
             fromPassword = System.IO.File.ReadAllText("C:\\Пароль.txt");
             InitializeComponent();
+
+            cbSenderSelect.ItemsSource = VariablesClass.Senders;
+            cbSenderSelect.DisplayMemberPath = "Key";
+            cbSenderSelect.SelectedValuePath = "Value";
+
+            cbServer.ItemsSource = VariablesClass.Server;
+            cbServer.DisplayMemberPath = "Key";
+            cbServer.SelectedValuePath = "Value";
         }
 
         private void btnSendEmail_Click(object sender, RoutedEventArgs e)
