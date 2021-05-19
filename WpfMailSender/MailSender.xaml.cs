@@ -21,10 +21,10 @@ namespace WpfMailSender
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class WpfMailSender : Window
+    public partial class MailSender : Window
     {
         string fromPassword;
-        public WpfMailSender()
+        public MailSender()
         {
             fromPassword = System.IO.File.ReadAllText("C:\\Пароль.txt");
             InitializeComponent();

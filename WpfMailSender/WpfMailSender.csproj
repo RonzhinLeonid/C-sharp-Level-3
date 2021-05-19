@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="DoubleButton.xaml">
+    <Page Include="PrevNextButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -63,7 +63,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WpfMailSender.xaml">
+    <Page Include="MailSender.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -71,18 +71,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DoubleButton.xaml.cs">
-      <DependentUpon>DoubleButton.xaml</DependentUpon>
-    </Compile>
     <Compile Include="EmailSendServiceClass.cs" />
     <Compile Include="Model\PasswordClass.cs" />
     <Compile Include="Model\VariablesClass.cs" />
+    <Compile Include="PrevNextButton.xaml.cs">
+      <DependentUpon>PrevNextButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="UserMessageBox.xaml.cs">
       <DependentUpon>UserMessageBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WpfMailSender.xaml.cs">
-      <DependentUpon>WpfMailSender.xaml</DependentUpon>
+    <Compile Include="MailSender.xaml.cs">
+      <DependentUpon>MailSender.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

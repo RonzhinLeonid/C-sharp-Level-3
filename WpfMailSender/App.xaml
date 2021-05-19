@@ -1,8 +1,8 @@
-﻿<Application x:Class="WpfTestMailSender.App"
+﻿<Application x:Class="WpfMailSender.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WpfTestMailSender"
-             StartupUri="WpfMailSender.xaml">
+             xmlns:local="clr-namespace:WpfMailSender"
+             StartupUri="MailSender.xaml">
     <Application.Resources>
 
     </Application.Resources>
