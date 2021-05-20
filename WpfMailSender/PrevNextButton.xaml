@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:WpfMailSender"
              mc:Ignorable="d" x:Name="root">
     <DockPanel>
-        <Button x:Name="btnPrev" DockPanel.Dock="Left">
+        <Button x:Name="btnPrev" DockPanel.Dock="Left" Click="btnPrev_Click">
             <Button.Content>
                 <StackPanel Orientation="Vertical">
                     <Image Source="/Icons/Move Previous (Arrow) Green64.png" Width="30" Height="16" />
@@ -14,7 +14,7 @@
                 </StackPanel>
             </Button.Content>
         </Button>
-        <Button x:Name="btnNext" DockPanel.Dock="Right">
+        <Button x:Name="btnNext" DockPanel.Dock="Right" Click="btnNext_Click">
             <Button.Content>
                 <StackPanel Orientation="Vertical">
                     <Image Source="/Icons/Move Next (Arrow) Green64.png" Width="30" Height="16" />

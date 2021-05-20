@@ -20,6 +20,17 @@ namespace WpfMailSender
     /// </summary>
     public partial class PrevNextButton : UserControl
     {
+        public event RoutedEventHandler btnNextClick;
+        public event RoutedEventHandler btnPreviousClick;
+        private void btnNext_Click(object sender, RoutedEventArgs e)
+        {
+            btnNextClick?.Invoke(sender, e);
+        }
+        private void btnPrev_Click(object sender, RoutedEventArgs e)
+        {
+            btnPreviousClick?.Invoke(sender, e);
+        }
+
         public PrevNextButton()
         {
             InitializeComponent();

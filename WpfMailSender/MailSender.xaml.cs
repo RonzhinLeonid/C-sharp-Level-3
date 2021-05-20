@@ -86,5 +86,10 @@ namespace WpfMailSender
         {
             Close();
         }
+
+        private void pnBtnUI_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
