@@ -90,7 +90,7 @@ namespace WpfMailSender
 
         private void pnBtnUI_btnPreviousClick(object sender, RoutedEventArgs e)
         {
-            tabControl.SelectedIndex -= 1;
+            tabControl.SelectedIndex--;
             if (tabControl.SelectedIndex == 0)
                 pnBtnUI.IsHidebtnPrevious = true;
             else
@@ -99,7 +99,7 @@ namespace WpfMailSender
 
         private void pnBtnUI_btnNextClick(object sender, RoutedEventArgs e)
         {
-            tabControl.SelectedIndex += 1;
+            tabControl.SelectedIndex++;
             if (tabControl.SelectedIndex == tabControl.Items.Count-1)
                 pnBtnUI.IsHideBtnNext = true;
             else
