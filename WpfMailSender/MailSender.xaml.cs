@@ -82,14 +82,28 @@ namespace WpfMailSender
             formAbout.ShowDialog();
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        private void MenuItem_Click_Exit(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
-        private void pnBtnUI_Loaded(object sender, RoutedEventArgs e)
-        {
 
+        private void pnBtnUI_btnPreviousClick(object sender, RoutedEventArgs e)
+        {
+            tabControl.SelectedIndex -= 1;
+            if (tabControl.SelectedIndex == 0)
+                pnBtnUI.IsHidebtnPrevious = true;
+            else
+                pnBtnUI.IsHideBtnNext = false;
+        }
+
+        private void pnBtnUI_btnNextClick(object sender, RoutedEventArgs e)
+        {
+            tabControl.SelectedIndex += 1;
+            if (tabControl.SelectedIndex == tabControl.Items.Count-1)
+                pnBtnUI.IsHideBtnNext = true;
+            else
+                pnBtnUI.IsHidebtnPrevious = false;
         }
     }
 }

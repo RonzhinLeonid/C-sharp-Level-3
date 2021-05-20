@@ -30,7 +30,6 @@ namespace WpfMailSender
         {
             btnPreviousClick?.Invoke(sender, e);
         }
-
         public PrevNextButton()
         {
             InitializeComponent();
@@ -60,24 +59,24 @@ namespace WpfMailSender
         {
             btnNext.Visibility = Visibility.Hidden;
             btnPrev.Visibility = Visibility.Visible;
-            btnPrev.Width = root.Width;
-            btnNext.Width = 0;
+            //btnPrev.Width = 60;
+            //btnNext.Width = 0;
             btnPrev.HorizontalAlignment = HorizontalAlignment.Stretch;
         }
         private void btnPreviousTrueBtnNextFalse()
         {
             btnPrev.Visibility = Visibility.Hidden;
             btnNext.Visibility = Visibility.Visible;
-            btnNext.Width = root.Width;
-            btnPrev.Width = 0;
+            //btnNext.Width = 60;
+            //btnPrev.Width = 0;
             btnNext.HorizontalAlignment = HorizontalAlignment.Stretch;
         }
         private void btnPreviousFalseBtnNextFalse()
         {
             btnNext.Visibility = Visibility.Visible;
             btnPrev.Visibility = Visibility.Visible;
-            btnNext.Width = root.Width / 2;
-            btnPrev.Width = root.Width / 2;
+            //btnNext.Width = 30;
+            //btnPrev.Width = 30;
         }
         private void btnPreviousTrueBtnNextTrue()
         {
