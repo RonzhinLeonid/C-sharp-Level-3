@@ -1,26 +1,30 @@
-﻿<Window x:Class="WpfMailSender.WpfMailSender"
+﻿<Window x:Class="WpfMailSender.MailSender"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfTestMailSender"
+        xmlns:local="clr-namespace:WpfMailSender"
         mc:Ignorable="d"
         Title="Mailer" Height="450" Width="800" Icon="Icons/Mail_64x.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="39*"/>
+            <RowDefinition Height="50*"/>
             <RowDefinition Height="281*"/>
             <RowDefinition Height="39*"/>
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
             <MenuItem Header="File">
-                <MenuItem Header="Exit" Click="MenuItem_Click_1"/>
+                <MenuItem Header="Exit" Click="MenuItem_Click_Exit"/>
             </MenuItem>
             <MenuItem Header="Help">
                 <MenuItem Header="About" Click="MenuItem_Click"/>
             </MenuItem>
         </Menu>
-        <TabControl Grid.Row="1" x:Name="tabControll1" TabStripPlacement="Right">
+        <StackPanel Grid.Row="1" HorizontalAlignment ="Right" VerticalAlignment="Center" Margin="0,0,15,0">
+            <local:PrevNextButton x:Name ="pnBtnUI" btnPreviousClick="pnBtnUI_btnPreviousClick" btnNextClick="pnBtnUI_btnNextClick" IsHidebtnPrevious="True" />
+        </StackPanel>
+        <TabControl Grid.Row="2" x:Name="tabControl" TabStripPlacement="Right">
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
@@ -129,6 +133,25 @@
                         <TextBlock Margin="3">Настройки</TextBlock>
                     </StackPanel>
                 </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2">
+                        <Label Content="Сервер:" Width="auto"/>
+                        <ComboBox  x:Name="cbServer" Width="150"/>
+                        <Label Content="Порт:" Width="auto"/>
+                        <TextBox  x:Name="tbPort" Width="50"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Vertical" >
+                        <Label Content="Логин:" />
+                        <ComboBox x:Name="cbSenderSelect" HorizontalAlignment ="Left" Width="200"/>
+                        <Label Content="To:" Width="auto"/>
+                        <PasswordBox x:Name="tbPassword" HorizontalAlignment ="Left" Width="200"/>
+                    </StackPanel>
+                </Grid>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
@@ -152,11 +175,15 @@
                                 <Image Source="/Icons/stat.ico"  Width="50"/>
                                 <TextBlock Margin="3">Журнал</TextBlock>
                             </StackPanel>
+                            
                         </StackPanel.ToolTip>
                         <Image Source="/Icons/stat.ico"  Width="20"/>
                         <TextBlock Margin="3">Журнал</TextBlock>
                     </StackPanel>
                 </TabItem.Header>
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Логин:" />
+                </StackPanel>
             </TabItem>
         </TabControl>
     </Grid>

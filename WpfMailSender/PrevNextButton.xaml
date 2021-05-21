@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="WpfMailSender.PrevNextButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfMailSender"
+             mc:Ignorable="d" x:Name="root">
+    <DockPanel>
+        <Button x:Name="btnPrev" DockPanel.Dock="Left" Click="btnPrev_Click">
+            <Button.Content>
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Icons/Move Previous (Arrow) Green64.png" Width="30" Height="16" />
+                    <TextBlock Margin="3,0,0,0" Text="Prev" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <Button x:Name="btnNext" DockPanel.Dock="Right" Click="btnNext_Click">
+            <Button.Content>
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Icons/Move Next (Arrow) Green64.png" Width="30" Height="16" />
+                    <TextBlock Margin="3,0,0,0" Text="Next" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+    </DockPanel>
+</UserControl>

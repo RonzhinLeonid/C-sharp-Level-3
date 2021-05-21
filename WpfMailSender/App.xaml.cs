@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace WpfTestMailSender
+namespace WpfMailSender
 {
     /// <summary>
     /// Логика взаимодействия для App.xaml

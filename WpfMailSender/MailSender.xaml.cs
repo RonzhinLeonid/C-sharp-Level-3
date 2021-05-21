@@ -14,23 +14,45 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net;
 using System.Net.Mail;
+using WpfMailSender.Model;
 
 namespace WpfMailSender
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class WpfMailSender : Window
+    public partial class MailSender : Window
     {
         string fromPassword;
-        public WpfMailSender()
+        public MailSender()
         {
             fromPassword = System.IO.File.ReadAllText("C:\\Пароль.txt");
             InitializeComponent();
+
+            cbSenderSelect.ItemsSource = VariablesClass.Senders;
+            cbSenderSelect.DisplayMemberPath = "Key";
+            cbSenderSelect.SelectedValuePath = "Value";
+
+            cbServer.ItemsSource = VariablesClass.Server;
+            cbServer.DisplayMemberPath = "Key";
+            cbServer.SelectedValuePath = "Value";
         }
 
         private void btnSendEmail_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(tbBody.Text))
+            {
+                MessageBox.Show("Письмо не заполнено.");
+                tbBody.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(tbTo.Text))
+            {
+                MessageBox.Show("Не указан получатель.");
+                tbTo.Focus();
+                return;
+            }
+
             var email = new EmailSendServiceClass("jiehuh87@gmail.com", fromPassword);
             email.FromWriter = tbFrom.Text;
             email.ToWriter = tbTo.Text;
@@ -60,9 +82,28 @@ namespace WpfMailSender
             formAbout.ShowDialog();
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        private void MenuItem_Click_Exit(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+
+        private void pnBtnUI_btnPreviousClick(object sender, RoutedEventArgs e)
+        {
+            tabControl.SelectedIndex--;
+            if (tabControl.SelectedIndex == 0)
+                pnBtnUI.IsHidebtnPrevious = true;
+            else
+                pnBtnUI.IsHideBtnNext = false;
+        }
+
+        private void pnBtnUI_btnNextClick(object sender, RoutedEventArgs e)
+        {
+            tabControl.SelectedIndex++;
+            if (tabControl.SelectedIndex == tabControl.Items.Count-1)
+                pnBtnUI.IsHideBtnNext = true;
+            else
+                pnBtnUI.IsHidebtnPrevious = false;
         }
     }
 }
