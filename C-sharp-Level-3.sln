@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfMailSender", "WpfMailSender\WpfMailSender.csproj", "{C58D45FA-8A3D-4461-AEB6-51BBA199CBF0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Les3", "Les3", "{59FB41C2-3747-4863-957F-9DEBB835E1EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandExample", "CommandExample\CommandExample.csproj", "{5760F7F6-4120-4FA2-A9F5-526E70D0DDC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{C58D45FA-8A3D-4461-AEB6-51BBA199CBF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C58D45FA-8A3D-4461-AEB6-51BBA199CBF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C58D45FA-8A3D-4461-AEB6-51BBA199CBF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5760F7F6-4120-4FA2-A9F5-526E70D0DDC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5760F7F6-4120-4FA2-A9F5-526E70D0DDC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5760F7F6-4120-4FA2-A9F5-526E70D0DDC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5760F7F6-4120-4FA2-A9F5-526E70D0DDC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5760F7F6-4120-4FA2-A9F5-526E70D0DDC0} = {59FB41C2-3747-4863-957F-9DEBB835E1EB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {61EAE452-9ECE-4940-8DA2-DBA9F7074C1A}

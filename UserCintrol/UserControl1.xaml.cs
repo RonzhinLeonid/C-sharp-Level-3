@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfMailSender
+namespace UserCintrol
 {
     /// <summary>
-    /// Логика взаимодействия для DoubleButton.xaml
+    /// Interaction logic for UserControl1.xaml
     /// </summary>
-    public partial class DoubleButton : UserControl
+    public partial class UserControl1 : UserControl
     {
-        public DoubleButton()
+        public UserControl1()
         {
             InitializeComponent();
         }
