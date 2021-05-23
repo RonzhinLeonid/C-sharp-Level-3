@@ -13,32 +13,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CommandExample
+namespace MVVM
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ICommand Command1
-        {
-            get
-            {
-                //MessageBox.Show("1");
-                return new DelegateCommand((p) => MessageBox.Show(p.ToString() + 1), (p) => true);
-            }
-
-        }
-
-        public ICommand Command2
-        {
-            get
-            {
-                //MessageBox.Show("2");
-                return new DelegateCommand((p) => MessageBox.Show(p.ToString() + 2), (p) => true);
-            }
-
-        }
         public MainWindow()
         {
             InitializeComponent();

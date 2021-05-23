@@ -26,9 +26,9 @@ namespace WpfMailSender
         string fromPassword;
         public MailSender()
         {
-            fromPassword = System.IO.File.ReadAllText("C:\\Пароль.txt");
             InitializeComponent();
 
+            fromPassword = System.IO.File.ReadAllText("C:\\Пароль.txt");
             cbSenderSelect.ItemsSource = VariablesClass.Senders;
             cbSenderSelect.DisplayMemberPath = "Key";
             cbSenderSelect.SelectedValuePath = "Value";
@@ -38,37 +38,37 @@ namespace WpfMailSender
             cbServer.SelectedValuePath = "Value";
         }
 
-        private void btnSendEmail_Click(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrEmpty(tbBody.Text))
-            {
-                MessageBox.Show("Письмо не заполнено.");
-                tbBody.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(tbTo.Text))
-            {
-                MessageBox.Show("Не указан получатель.");
-                tbTo.Focus();
-                return;
-            }
+        //private void btnSendEmail_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (string.IsNullOrEmpty(tbBody.Text))
+        //    {
+        //        MessageBox.Show("Письмо не заполнено.");
+        //        tbBody.Focus();
+        //        return;
+        //    }
+        //    if (string.IsNullOrEmpty(tbTo.Text))
+        //    {
+        //        MessageBox.Show("Не указан получатель.");
+        //        tbTo.Focus();
+        //        return;
+        //    }
 
-            var email = new EmailSendServiceClass("jiehuh87@gmail.com", fromPassword);
-            email.FromWriter = tbFrom.Text;
-            email.ToWriter = tbTo.Text;
-            email.Subject = tbSubject.Text;
-            email.Body = tbBody.Text;
-            email.IsBodyHtml = false;
-            email.SendMessage();
+        //    var email = new EmailSendServiceClass("jiehuh87@gmail.com", fromPassword);
+        //    email.FromWriter = tbFrom.Text;
+        //    email.ToWriter = tbTo.Text;
+        //    email.Subject = tbSubject.Text;
+        //    email.Body = tbBody.Text;
+        //    email.IsBodyHtml = false;
+        //    email.SendMessage();
 
-            var formOk = new UserMessageBox();
-            formOk.Title = "Письмо отправлено.";
-            formOk.Width = 300;
-            formOk.Height = 200;
-            formOk.lblMessage.Content = "Работа завершена.";
-            formOk.lblMessage.Foreground = Brushes.Black;
-            formOk.ShowDialog();
-        }
+        //    var formOk = new UserMessageBox();
+        //    formOk.Title = "Письмо отправлено.";
+        //    formOk.Width = 300;
+        //    formOk.Height = 200;
+        //    formOk.lblMessage.Content = "Работа завершена.";
+        //    formOk.lblMessage.Foreground = Brushes.Black;
+        //    formOk.ShowDialog();
+        //}
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {

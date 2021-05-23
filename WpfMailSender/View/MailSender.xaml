@@ -3,9 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:WpfMailSender.ViewModel"
         xmlns:local="clr-namespace:WpfMailSender"
         mc:Ignorable="d"
-        Title="Mailer" Height="450" Width="800" Icon="Icons/Mail_64x.png">
+        Title="Mailer" Height="450" Width="800" x:Name="mainWindow">
+    <Window.DataContext>
+        <viewmodel:ViewModel x:Name="VM"/>
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="39*"/>
@@ -90,20 +94,20 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Row="0" Orientation="Vertical" Grid.ColumnSpan="2">
                         <Label Content="Название письма:" Width="auto"/>
-                        <TextBox Text="Название письма" x:Name="tbSubject" HorizontalAlignment ="Stretch"/>
+                        <TextBox Text="{Binding Path=Subject,Mode=TwoWay}" x:Name="tbSubject" HorizontalAlignment ="Stretch"/>
                     </StackPanel>
                     <StackPanel Grid.Row="1" Orientation="Vertical" >
                         <Label Content="From:" Width="auto"/>
-                        <TextBox Text="jiehuh87@yandex.ru" x:Name="tbFrom" HorizontalAlignment ="Stretch"/>
+                        <TextBox Text="{Binding Path=FromWriter,StringFormat=jiehuh87@yandex.ru{0},Mode=TwoWay}" x:Name="tbFrom" HorizontalAlignment ="Stretch"/>
                     </StackPanel>
                     <StackPanel Grid.Row="1"  Grid.Column="1" Orientation="Vertical" >
                         <Label Content="To:" Width="auto"/>
-                        <TextBox Text="jiehuh87@yandex.ru" x:Name="tbTo" HorizontalAlignment ="Stretch"/>
+                        <TextBox Text="{Binding Path=ToWriter,StringFormat=jiehuh87@yandex.ru{0},Mode=TwoWay}" x:Name="tbTo" HorizontalAlignment ="Stretch"/>
                     </StackPanel>
                     <Label Grid.Row="2" Content="Содержимое письма:" Width="auto"/>
-                    <TextBox Grid.Row="3" Grid.ColumnSpan="2" Text="Содержимое письма" x:Name="tbBody" HorizontalAlignment ="Stretch"/>
-                    <Button Grid.Row="4" x:Name="btnSendEmail" Content="Отправить email" HorizontalAlignment="Stretch" Margin="50,0,50,0" VerticalAlignment="Bottom" Click="btnSendEmail_Click"/>
-                    <Button Grid.Row="4" Grid.Column="1" x:Name="btn" Content="Добавить в планировщик" HorizontalAlignment="Stretch" Margin="50,0,50,0" VerticalAlignment="Bottom" Click="btnSendEmail_Click"/>
+                    <TextBox Grid.Row="3" Grid.ColumnSpan="2" Text="{Binding Path=Body,Mode=TwoWay}" x:Name="tbBody" HorizontalAlignment ="Stretch"/>
+                    <Button Grid.Row="4" x:Name="btnSendEmail" Command="{Binding SendEmail}" Content="Отправить email" HorizontalAlignment="Stretch" Margin="50,0,50,0" VerticalAlignment="Bottom"/>
+                    <Button Grid.Row="4" Grid.Column="1" x:Name="btn" Content="Добавить в планировщик" HorizontalAlignment="Stretch" Margin="50,0,50,0" VerticalAlignment="Bottom"/>
                 </Grid>
             </TabItem>
             <TabItem>
