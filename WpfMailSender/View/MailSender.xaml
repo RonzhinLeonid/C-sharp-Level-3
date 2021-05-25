@@ -22,14 +22,32 @@
                 <MenuItem Header="Exit" Click="MenuItem_Click_Exit"/>
             </MenuItem>
             <MenuItem Header="Help">
-                <MenuItem Header="About" Click="MenuItem_Click"/>
+                <MenuItem Header="About" Command="{Binding About}"/>
             </MenuItem>
         </Menu>
-        <StackPanel Grid.Row="1" HorizontalAlignment ="Right" VerticalAlignment="Center" Margin="0,0,15,0">
-            <local:PrevNextButton x:Name ="pnBtnUI" btnPreviousClick="pnBtnUI_btnPreviousClick" btnNextClick="pnBtnUI_btnNextClick" IsHidebtnPrevious="True" />
-        </StackPanel>
-        <TabControl Grid.Row="2" x:Name="tabControl" TabStripPlacement="Right">
-            <TabItem>
+        <!--<StackPanel Grid.Row="1" HorizontalAlignment ="Right" VerticalAlignment="Center" Margin="0,0,15,0">-->
+            <!--<local:PrevNextButton x:Name ="pnBtnUI" btnPreviousClick="pnBtnUI_btnPreviousClick" btnNextClick="pnBtnUI_btnNextClick" IsHidebtnPrevious="True" />-->
+            <DockPanel Grid.Row="1" HorizontalAlignment ="Right" VerticalAlignment="Center" Margin="0,0,15,0">
+            <Button x:Name="btnPrev" DockPanel.Dock="Left" Command="{Binding PrevTab}">
+                    <Button.Content>
+                        <StackPanel Orientation="Vertical">
+                            <Image Source="/Icons/Move Previous (Arrow) Green64.png" Width="30" Height="16" />
+                            <TextBlock Margin="3,0,0,0" Text="Prev" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            <Button x:Name="btnNext" DockPanel.Dock="Right" Command="{Binding NextTab}">
+                    <Button.Content>
+                        <StackPanel Orientation="Vertical">
+                            <Image Source="/Icons/Move Next (Arrow) Green64.png" Width="30" Height="16" />
+                            <TextBlock Margin="3,0,0,0" Text="Next" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </DockPanel>
+        <!--</StackPanel>-->
+        <TabControl Grid.Row="2" x:Name="tabControl" TabStripPlacement="Right" SelectedIndex="{Binding SelectedListener, Mode=TwoWay}">
+            <TabItem >
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                         <StackPanel.ToolTip>
@@ -94,18 +112,18 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Row="0" Orientation="Vertical" Grid.ColumnSpan="2">
                         <Label Content="Название письма:" Width="auto"/>
-                        <TextBox Text="{Binding Path=Subject,Mode=TwoWay}" x:Name="tbSubject" HorizontalAlignment ="Stretch"/>
+                        <TextBox Text="{Binding Path=Subject,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" x:Name="tbSubject" HorizontalAlignment ="Stretch"/>
                     </StackPanel>
                     <StackPanel Grid.Row="1" Orientation="Vertical" >
                         <Label Content="From:" Width="auto"/>
-                        <TextBox Text="{Binding Path=FromWriter,StringFormat=jiehuh87@yandex.ru{0},Mode=TwoWay}" x:Name="tbFrom" HorizontalAlignment ="Stretch"/>
+                        <TextBox Text="{Binding Path=FromWriter,Mode=TwoWay}" x:Name="tbFrom" HorizontalAlignment ="Stretch"/>
                     </StackPanel>
                     <StackPanel Grid.Row="1"  Grid.Column="1" Orientation="Vertical" >
                         <Label Content="To:" Width="auto"/>
-                        <TextBox Text="{Binding Path=ToWriter,StringFormat=jiehuh87@yandex.ru{0},Mode=TwoWay}" x:Name="tbTo" HorizontalAlignment ="Stretch"/>
+                        <TextBox Text="{Binding Path=ToWriter,Mode=TwoWay}" x:Name="tbTo" HorizontalAlignment ="Stretch"/>
                     </StackPanel>
                     <Label Grid.Row="2" Content="Содержимое письма:" Width="auto"/>
-                    <TextBox Grid.Row="3" Grid.ColumnSpan="2" Text="{Binding Path=Body,Mode=TwoWay}" x:Name="tbBody" HorizontalAlignment ="Stretch"/>
+                    <TextBox Grid.Row="3" Grid.ColumnSpan="2" Text="{Binding Path=Body,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" x:Name="tbBody" HorizontalAlignment ="Stretch"/>
                     <Button Grid.Row="4" x:Name="btnSendEmail" Command="{Binding SendEmail}" Content="Отправить email" HorizontalAlignment="Stretch" Margin="50,0,50,0" VerticalAlignment="Bottom"/>
                     <Button Grid.Row="4" Grid.Column="1" x:Name="btn" Content="Добавить в планировщик" HorizontalAlignment="Stretch" Margin="50,0,50,0" VerticalAlignment="Bottom"/>
                 </Grid>
@@ -145,13 +163,13 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2">
                         <Label Content="Сервер:" Width="auto"/>
-                        <ComboBox  x:Name="cbServer" Width="150"/>
+                        <ComboBox  x:Name="cbServer" Width="150" ItemsSource="{Binding Server.Keys}"/>
                         <Label Content="Порт:" Width="auto"/>
-                        <TextBox  x:Name="tbPort" Width="50"/>
+                        <TextBox  x:Name="tbPort" Width="50" Text="{Binding Path=Server}"/>
                     </StackPanel>
                     <StackPanel Grid.Row="1" Orientation="Vertical" >
                         <Label Content="Логин:" />
-                        <ComboBox x:Name="cbSenderSelect" HorizontalAlignment ="Left" Width="200"/>
+                        <ComboBox x:Name="cbSenderSelect" HorizontalAlignment ="Left" Width="200" ItemsSource="{Binding Senders.Keys}" SelectedItem="{Binding Senders.Keys[1]}"/>
                         <Label Content="To:" Width="auto"/>
                         <PasswordBox x:Name="tbPassword" HorizontalAlignment ="Left" Width="200"/>
                     </StackPanel>
