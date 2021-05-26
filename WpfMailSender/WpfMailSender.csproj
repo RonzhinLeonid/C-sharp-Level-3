@@ -82,6 +82,7 @@
       <DependentUpon>UserMessageBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\DelegateCommand.cs" />
+    <Compile Include="ViewModel\EmailValidationRule.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
     <Compile Include="View\MailSender.xaml.cs">
       <DependentUpon>MailSender.xaml</DependentUpon>

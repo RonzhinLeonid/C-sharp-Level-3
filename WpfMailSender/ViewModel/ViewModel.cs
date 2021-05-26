@@ -65,7 +65,6 @@ namespace WpfMailSender.ViewModel
         }
 
         bool IsBodyHtml { get; set; } = false;
-        
         public Dictionary<string, string> Senders { get; set; } = VariablesClass.Senders;
         public Dictionary<string, int> Server { get; set; } = VariablesClass.Server;
 
@@ -116,6 +115,7 @@ namespace WpfMailSender.ViewModel
                 }, (p) => _selectedListener < 5);
             }
         }
+
         public ICommand PrevTab
         {
             get

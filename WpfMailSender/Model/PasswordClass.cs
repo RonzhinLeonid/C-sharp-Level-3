@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,5 +38,30 @@ namespace WpfMailSender.Model
             return sCode;
         }
 
+        /// <summary>
+        /// Проверка пароля с MD5
+        /// </summary>
+        /// <param name="password"></param>
+        /// <param name="hashPassword"></param>
+        /// <returns></returns>
+        public static bool ValidatePassword(string password, string hashPassword)
+        { 
+            return hashPassword == GetHashString(password);
+        }
+        /// <summary>
+        /// Преобразование пароля в MD5
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string GetHashString(string s)
+        {
+            byte[] bytes = Encoding.Unicode.GetBytes(s);
+            MD5CryptoServiceProvider CSP = new MD5CryptoServiceProvider();
+            byte[] byteHash = CSP.ComputeHash(bytes);
+            string hash = string.Empty;
+            foreach (byte b in byteHash)
+                hash += string.Format("{0:x2}", b);
+            return hash;
+        }
     }
 }
