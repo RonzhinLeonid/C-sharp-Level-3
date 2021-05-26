@@ -113,7 +113,7 @@ namespace WpfMailSender.ViewModel
                     Debug.WriteLine("Click access ");
                     _selectedListener++;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedListener"));
-                }, (p) => true);
+                }, (p) => _selectedListener < 5);
             }
         }
         public ICommand PrevTab
