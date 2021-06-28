@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C58D45FA-8A3D-4461-AEB6-51BBA199CBF0}</ProjectGuid>
+    <ProjectGuid>{5760F7F6-4120-4FA2-A9F5-526E70D0DDC0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WpfMailSender</RootNamespace>
-    <AssemblyName>WpfMailSender</AssemblyName>
+    <RootNamespace>CommandExample</RootNamespace>
+    <AssemblyName>CommandExample</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -55,15 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="PrevNextButton.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserMessageBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\MailSender.xaml">
+    <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -71,21 +63,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Model\EmailSendServiceClass.cs" />
-    <Compile Include="Model\PasswordClass.cs" />
-    <Compile Include="Model\VariablesClass.cs" />
-    <Compile Include="PrevNextButton.xaml.cs">
-      <DependentUpon>PrevNextButton.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Settings.cs" />
-    <Compile Include="UserMessageBox.xaml.cs">
-      <DependentUpon>UserMessageBox.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\DelegateCommand.cs" />
-    <Compile Include="ViewModel\EmailValidationRule.cs" />
-    <Compile Include="ViewModel\ViewModel.cs" />
-    <Compile Include="View\MailSender.xaml.cs">
-      <DependentUpon>MailSender.xaml</DependentUpon>
+    <Compile Include="DelegateCommand.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -115,26 +95,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icons\2groups.ico" />
-    <Resource Include="Icons\Bookmark-Folder.ico" />
-    <Resource Include="Icons\cache.png" />
-    <Resource Include="Icons\clock.png" />
-    <Resource Include="Icons\groups.ico" />
-    <Resource Include="Icons\library.ico" />
-    <Resource Include="Icons\mailreminder.png" />
-    <Resource Include="Icons\Mail_64x.png" />
-    <Resource Include="Icons\Mimetypes-application-vnd-oasis-opendocument-text.ico" />
-    <Resource Include="Icons\Move Next %28Arrow%29 Green64.png" />
-    <Resource Include="Icons\Move Previous %28Arrow%29 Green64.png" />
-    <Resource Include="Icons\New Add64.png" />
-    <Resource Include="Icons\New Edit64.png" />
-    <Resource Include="Icons\New Remove64.png" />
-    <Resource Include="Icons\outbox1.png" />
-    <Resource Include="Icons\schedule.ico" />
-    <Resource Include="Icons\settings.ico" />
-    <Resource Include="Icons\stat.ico" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

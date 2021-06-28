@@ -89,6 +89,13 @@ namespace WpfMailSender
                     try
                     {
                         sc.Send(mm);
+                        var formOk = new UserMessageBox();
+                        formOk.Title = "Информация.";
+                        formOk.Width = 300;
+                        formOk.Height = 200;
+                        formOk.lblMessage.Content = "Письмо отправлено.";
+                        formOk.lblMessage.Foreground = Brushes.Black;
+                        formOk.ShowDialog();
                     }
                     catch (Exception ex)
                     {

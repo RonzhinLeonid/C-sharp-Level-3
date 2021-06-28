@@ -1,0 +1,14 @@
+﻿<Window x:Class="CommandExample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CommandExample"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" x:Name="mainWindow">
+    <StackPanel>
+        <Button Command="{Binding Path=Command1, ElementName=mainWindow}" CommandParameter="{Binding Text,ElementName=tbText}" Content="Command1"/>
+        <Button Command="{Binding Path=Command2, ElementName=mainWindow}" CommandParameter="{Binding Text,ElementName=tbText}" Content="Command2"/>
+        <TextBox Text="TextBox" TextWrapping="Wrap" Width="120" x:Name="tbText"/>
+    </StackPanel>
+</Window>
